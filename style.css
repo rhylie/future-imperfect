@@ -3471,3 +3471,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 			}
 
 		}
+
+
+		.mini-post .author img {
+		    max-width: 55% !important;
+		}

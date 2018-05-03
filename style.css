@@ -3476,3 +3476,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		.mini-post .author img {
 		    max-width: 55% !important;
 		}
+
+		.mini-post img {
+		    max-width: 100%;
+		    height: auto;
+		    display: block;
+		}

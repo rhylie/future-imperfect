@@ -64,9 +64,14 @@
 	</div><!-- .entry-content -->
 
 	<footer>
-		<ul class="actions">
-			<li><a href="<?php the_permalink(); ?>" class="button big">Continue Reading</a></li>
-		</ul>
+
+		<?php
+		if ( ! is_singular() ) : ?> <!-- DONT RENDER THIS BUTTON ON SINGLE/SINGULAR POST PAGE -->
+			<ul class="actions">
+				<li><a href="<?php the_permalink(); ?>" class="button big">Continue Reading</a></li>
+			</ul>
+		<?php endif; ?>
+
 		<ul class="stats">
 			<li><a href="#">General</a></li><!-- TODO: Remove static content, generate dynamic current post category -->
 			<li><a href="#" class="icon fa-heart">455</a></li>

@@ -51,6 +51,25 @@ if ( ! function_exists( 'future_imperfect_posted_by' ) ) :
 	}
 endif;
 
+
+if ( ! function_exists( 'future_imperfect_posted_by_sidebar' ) ) :
+	/**
+	 * Prints HTML with meta information for the current author.
+	 */
+	function future_imperfect_posted_by_sidebar() {
+		$byline = sprintf(
+			/* translators: %s: post author. */
+			esc_html_x( '%s', 'post author', 'future-imperfect' ),
+			'<span class="vcard"><a class="author url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) 
+																    . '">' 
+																    . get_avatar( get_the_author_meta( 'ID' ) ) . '</a></span>'
+		);
+
+		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+
+	}
+endif;
+
 if ( ! function_exists( 'future_imperfect_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.

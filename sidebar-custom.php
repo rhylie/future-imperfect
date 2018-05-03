@@ -34,16 +34,23 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 							
 							<header>
 								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-								<a href="#" class="author"><img src="http://localhost/wp-content/uploads/2018/05/logo.jpg" alt="" /></a>
+
+								<div class="meta"><!-- Meta information has been customized to further accomodate the design in '/inc/template-tags.php' -->
+									<?php
+										future_imperfect_posted_on();
+										future_imperfect_posted_by_sidebar();
+									?>
+								</div><!-- .entry-meta -->
+
+<!-- 								<time class="published" datetime="2015-10-20">October 20, 2015</time>
+								<a href="#" class="author"><img src="http://localhost/wp-content/uploads/2018/05/logo.jpg" alt="" /></a> -->
 							</header>
-							<!-- <?php future_imperfect_post_thumbnail(); ?> -->
-							<a href="#" class="image"><img src="http://localhost/wp-content/uploads/2018/05/pic06.jpg" alt="" /></a>
+							<?php future_imperfect_post_thumbnail(); ?>
+							<!-- <a href="#" class="image"><img src="http://localhost/wp-content/uploads/2018/05/pic06.jpg" alt="" /></a> -->
 
 						</article>
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
-
-
 
 
 				<!-- <article class="mini-post">

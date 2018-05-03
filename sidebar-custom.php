@@ -16,10 +16,10 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 	<!-- Intro -->
 		<section id="intro">
-			<a href="#" class="logo"><img src="http://localhost/wp-content/uploads/2018/05/logo.jpg" alt="" /></a>
+			<?php the_custom_logo(); ?><!-- Render the site logo, if it has been added -->
 			<header>
-				<h2>Future Imperfect</h2>
-				<p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
+				<h2 class="blog_info_title"><?php bloginfo( 'name' ); ?></h2><!-- bloginfo( 'string' ) object contains various site information -->
+				<p><?php bloginfo( 'description' ); ?></p>
 			</header>
 		</section>
 
@@ -28,28 +28,35 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 			<div class="mini-posts">
 
 				<!-- Mini Post -->
-					<?php
-					if ( have_posts() ) :
+					<?php $catquery = new WP_Query( 'cat=16&posts_per_page=3' ); ?>
+					<?php while($catquery->have_posts()) : $catquery->the_post(); ?>
+						<article class="mini-post">
+							
+							<header>
+								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+								<a href="#" class="author"><img src="http://localhost/wp-content/uploads/2018/05/logo.jpg" alt="" /></a>
+							</header>
+							<!-- <?php future_imperfect_post_thumbnail(); ?> -->
+							<a href="#" class="image"><img src="http://localhost/wp-content/uploads/2018/05/pic06.jpg" alt="" /></a>
 
-						/* Start the Loop */
-						while ( have_posts() ) :
-							the_post();
+						</article>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
 
-							get_template_part( 'template-parts/content-sidebar', get_post_type() );
 
-						endwhile;
 
-						the_posts_navigation();
 
-					else :
+				<!-- <article class="mini-post">
+					<header>
+						<h3><a href="#">Vitae sed condimentum</a></h3>
+						<time class="published" datetime="2015-10-20">October 20, 2015</time>
+						<a href="#" class="author"><img src="http://localhost/wp-content/uploads/2018/05/logo.jpg" alt="" /></a>
+					</header>
+					<a href="#" class="image"><img src="http://localhost/wp-content/uploads/2018/05/pic06.jpg" alt="" /></a>
+				</article> -->
 
-						get_template_part( 'template-parts/content', 'none' );
-
-					endif;
-					?>
-
-			</div>
-		</section><!-- /. Ends Mini Posts -->
+			</div><!-- /.ends mini-posts -->
+		</section>
 
 
 	<!-- Footer -->

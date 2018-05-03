@@ -134,6 +134,20 @@ function future_imperfect_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'future_imperfect_scripts' );
 
+
+/**
+ * Sidebar category posts
+ */
+// function my_sidebar_category_posts( $query ) {
+// 	if ( $query->is_dynamic_sidebar() && $query->is_main_query() ) {
+// 		$query->set( 'cat', '16');
+// 	}
+// }
+// add_action( 'pre_get_posts', 'my_sidebar_category_posts' );
+
+
+
+
 /**
  * Implement the Custom Header feature.
  */

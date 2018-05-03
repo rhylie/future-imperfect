@@ -68,7 +68,7 @@
 			<li><a href="<?php the_permalink(); ?>" class="button big">Continue Reading</a></li>
 		</ul>
 		<ul class="stats">
-			<li><a href="#">General</a></li>
+			<li><a href="#">General</a></li><!-- TODO: Remove static content, generate dynamic current post category -->
 			<li><a href="#" class="icon fa-heart">455</a></li>
 			<?php $total_post_comments = get_comments_number( $post_id ); ?><!-- Store the total number of comments into '$total_post_comments' -->
 			<li><a href="#" class="icon fa-comment"><?php echo $total_post_comments ?></a></li>

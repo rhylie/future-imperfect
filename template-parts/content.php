@@ -9,36 +9,9 @@
 
 ?>
 
-
-<!-- <article class="post">
-	<header>
-		<div class="title">
-			<h2><a href="#">Magna sed adipiscing</a></h2>
-			<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
-		</div>
-		<div class="meta">
-			<time class="published" datetime="2015-11-01">November 1, 2015</time>
-			<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
-		</div>
-	</header>
-	<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-	<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-	<footer>
-		<ul class="actions">
-			<li><a href="#" class="button big">Continue Reading</a></li>
-		</ul>
-		<ul class="stats">
-			<li><a href="#">General</a></li>
-			<li><a href="#" class="icon fa-heart">28</a></li>
-			<li><a href="#" class="icon fa-comment">128</a></li>
-		</ul>
-	</footer>
-</article> -->
-
-
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
-	<header class="tparts-content">
 
+	<header class="tparts-content">
 		<div class="title">
 			<?php
 			if ( is_singular() ) :
@@ -55,18 +28,18 @@
 		if ( 'post' === get_post_type() ) :
 		?>
 
-			<div class="meta">
+			<div class="meta"><!-- Meta information has been customized to further accomodate the design in '/inc/template-tags.php' -->
 				<?php
-				future_imperfect_posted_on();
-				future_imperfect_posted_by();
+					future_imperfect_posted_on();
+					future_imperfect_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 
 		<?php endif; ?>
-
 	</header><!-- .entry-header -->
 
-	<?php future_imperfect_post_thumbnail(); ?>
+	<?php future_imperfect_post_thumbnail(); ?><!-- Outputs post thumbnail. 
+											        TODO: Need to work on the responsive rendering for mobile, tablet etc. -->
 
 	<div class="entry-content">
 		<?php
@@ -76,7 +49,7 @@
 				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'future-imperfect' ),
 				array(
 					'span' => array(
-						'class' => array(),
+					'class' => array(),
 					),
 				)
 			),
@@ -90,8 +63,16 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php future_imperfect_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<footer>
+		<ul class="actions">
+			<li><a href="<?php the_permalink(); ?>" class="button big">Continue Reading</a></li>
+		</ul>
+		<ul class="stats">
+			<li><a href="#">General</a></li>
+			<li><a href="#" class="icon fa-heart">455</a></li>
+			<?php $total_post_comments = get_comments_number( $post_id ); ?><!-- Store the total number of comments into '$total_post_comments' -->
+			<li><a href="#" class="icon fa-comment"><?php echo $total_post_comments ?></a></li>
+		</ul>
+	</footer>
 
 </article><!-- #post-<?php the_ID(); ?> -->

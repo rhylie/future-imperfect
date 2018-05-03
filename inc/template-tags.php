@@ -43,9 +43,7 @@ if ( ! function_exists( 'future_imperfect_posted_by' ) ) :
 		$byline = sprintf(
 			/* translators: %s: post author. */
 			esc_html_x( '%s', 'post author', 'future-imperfect' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' 
-																    . '<span class="name">' . get_the_author() . '</span>' 
-																    . get_avatar( get_the_author_meta( 'ID' ) ) . '</a></span>'
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . '<span class="name">' . get_the_author() . '</span>' . get_avatar( get_the_author_meta( 'ID' ) ) . '</a></span>'
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
